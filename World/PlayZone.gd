@@ -1,12 +1,22 @@
 tool
 extends TileMap
 
-export (String, '6 x 10', '5 x 8') var layout = '6 x 10' setget set_layout
+export (String, "6 x 10", "5 x 8") var layout = "6 x 10" setget set_layout
+
+func _ready():
+	PlayerManager.connect("player_connected", self, "on_player_connected")
+	PlayerManager.connect("player_disconnected", self, "on_player_disconnected")
+
+func on_player_connected(player):
+	print("player connected")
+
+func on_player_disconnected(player):
+	print("player diconnected")
 
 func set_layout(new_layout):
 	layout = new_layout
 	
-	var layout_size: PoolStringArray = layout.split(' x ')
+	var layout_size: PoolStringArray = layout.split(" x ")
 	var num_width_cells := int(layout_size[1])
 	var num_height_cells := int(layout_size[0])
 

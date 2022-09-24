@@ -16,6 +16,10 @@ boot_splash/show_image=false
 boot_splash/bg_color=Color( 0.109804, 0.109804, 0.109804, 1 )
 config/icon="res://Assets/Icon.png"
 
+[autoload]
+
+PlayerManager="*res://AutoLoad/PlayerManager.gd"
+
 [display]
 
 window/size/width=800
