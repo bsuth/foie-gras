@@ -12,11 +12,13 @@ config_version=4
 
 config/name="Godot Game Jam"
 run/main_scene="res://Main.tscn"
+boot_splash/show_image=false
 boot_splash/bg_color=Color( 0.109804, 0.109804, 0.109804, 1 )
 config/icon="res://Assets/Icon.png"
 
 [display]
 
+window/size/width=800
 window/stretch/aspect="keep"
 
 [gui]
