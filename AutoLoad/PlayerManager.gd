@@ -1,15 +1,30 @@
 extends Node
 
+signal player_connected(Player)
+signal player_disconnected(Player)
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var players: Array = []
 
-# Called when the node enters the scene tree for the first time.
+class Player:
+	var device: int
+	var connected: bool
+
 func _ready():
-	pass # Replace with function body.
+	Input.connect("joy_connection_changed", self, "on_joy_connection_changed")
 
+func on_joy_connection_changed(device, connected):
+	var existing_player: Player
+	for player in players:
+		if player.device == device:
+			existing_player = player
+			break
+	
+	if not existing_player:
+		existing_player = Player.new()
+		existing_player.device = device
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	existing_player.connected = connected
+	if connected:
+		emit_signal("player_connected", existing_player)
+	else:
+		emit_signal("player_disconnected", existing_player)
