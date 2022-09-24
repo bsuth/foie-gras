@@ -1,7 +1,7 @@
 tool extends Node
 
-export var defaultScene : PackedScene = load("res://World.tscn");
+export var defaultScene : PackedScene;
 
-func _init():
+func _ready():
 	var instance = defaultScene.instance();
 	add_child(instance);
