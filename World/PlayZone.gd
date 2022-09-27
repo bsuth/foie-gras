@@ -2,16 +2,12 @@ tool
 extends TileMap
 
 export (String, "6 x 10", "5 x 8") var layout = "6 x 10" setget set_layout
+var playerScene = load("res://World/Player.tscn")
 
 func _ready():
-	PlayerManager.connect("player_connected", self, "on_player_connected")
-	PlayerManager.connect("player_disconnected", self, "on_player_disconnected")
-
-func on_player_connected(player):
-	print("player connected")
-
-func on_player_disconnected(player):
-	print("player diconnected")
+	for player in PlayerManager.players:
+		var playerInstance = playerScene.instance()
+		self.add_child(playerInstance)
 
 func set_layout(new_layout):
 	layout = new_layout
