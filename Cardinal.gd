@@ -1,6 +1,9 @@
-tool extends Node
+tool
+extends Node
+
 
 export var defaultScene : PackedScene;
+
 
 func _ready():
 	var instance = defaultScene.instance();

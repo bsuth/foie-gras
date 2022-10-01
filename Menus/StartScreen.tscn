@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/StartScreen.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Duck_idle.png" type="Texture" id=3]
 [ext_resource path="res://Assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Menus/Honk.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/World.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=10]
 resource_name = "Overall"
@@ -348,6 +349,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -746, -15 )
 script = ExtResource( 2 )
+nextScene = ExtResource( 6 )
 
 [node name="Overall" type="AnimationPlayer" parent="."]
 autoplay = "Overall"
@@ -410,7 +412,6 @@ position = Vector2( 107, 85 )
 scale = Vector2( 7.0625, 7.0625 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 1
 playing = true
 offset = Vector2( -13.5929, -9.06195 )
 

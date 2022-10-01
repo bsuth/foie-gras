@@ -19,6 +19,7 @@ config/icon="res://Assets/Icon.png"
 [autoload]
 
 PlayerManager="*res://AutoLoad/PlayerManager.gd"
+GameState="*res://AutoLoad/GameState.gd"
 
 [display]
 
