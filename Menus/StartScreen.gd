@@ -1,11 +1,11 @@
-tool extends Control
+tool extends Node
 
 export var nextScene : PackedScene;
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		var instance = nextScene.instance()
-		add_child(instance)
+		GlobalUtils.Node.delete_children(self)
+		replace_by(nextScene.instance())
 
 func _ready():
 	pass

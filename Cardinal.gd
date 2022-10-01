@@ -1,7 +1,9 @@
 tool extends Node
 
-export var defaultScene : PackedScene;
+export var defaultScene : PackedScene
+export(NodePath) var sceneOwner : NodePath
+
+onready var sceneOwnerNode = get_node(sceneOwner)
 
 func _ready():
-	var instance = defaultScene.instance();
-	add_child(instance);
+	sceneOwnerNode.add_child(defaultScene.instance())
