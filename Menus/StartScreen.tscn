@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/StartScreen.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Duck_idle.png" type="Texture" id=3]
+[ext_resource path="res://Assets/DuckBob.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://Assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Menus/Honk.tscn" type="PackedScene" id=5]
-[ext_resource path="res://World/World.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Pond.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=10]
 resource_name = "Overall"
@@ -41,9 +41,105 @@ tracks/2/keys = {
 "clips": PoolStringArray( "AppearAndFade", "RESET" ),
 "times": PoolRealArray( -0.6, 2.2 )
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Centered/Title:margin_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Centered/Title:margin_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Centered/Title:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -188.5, 86 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Centered/Title:rect_rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=11]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Centered/Title:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -183.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Centered/Title:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 59.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Centered/Title:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -188.5, 86 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Centered/Title:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Blink"
@@ -75,22 +171,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ true ]
 }
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=8]
-animations = [ {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
-"loop": true,
-"name": "idle",
-"speed": 2.0
-} ]
 
 [sub_resource type="DynamicFont" id=9]
 size = 64
@@ -389,10 +469,15 @@ anchor_bottom = 0.5
 margin_top = -21.0
 margin_bottom = -21.0
 
+[node name="Pond" type="Sprite" parent="Centered"]
+position = Vector2( 1, 54 )
+scale = Vector2( 2.71354, 2.71354 )
+texture = ExtResource( 6 )
+
 [node name="Duck3" type="AnimatedSprite" parent="Centered"]
 position = Vector2( -51, 49 )
-scale = Vector2( 7.0625, 7.0625 )
-frames = SubResource( 8 )
+scale = Vector2( 7, 7 )
+frames = ExtResource( 3 )
 animation = "idle"
 speed_scale = 1.4
 playing = true
@@ -400,8 +485,8 @@ offset = Vector2( -0.566368, -10.4779 )
 
 [node name="Duck2" type="AnimatedSprite" parent="Centered"]
 position = Vector2( 77, 29 )
-scale = Vector2( 7.0625, 7.0625 )
-frames = SubResource( 8 )
+scale = Vector2( 7, 7 )
+frames = ExtResource( 3 )
 animation = "idle"
 speed_scale = 1.25
 playing = true
@@ -409,8 +494,8 @@ offset = Vector2( -0.566368, -10.4779 )
 
 [node name="Duck1" type="AnimatedSprite" parent="Centered"]
 position = Vector2( 107, 85 )
-scale = Vector2( 7.0625, 7.0625 )
-frames = SubResource( 8 )
+scale = Vector2( 7, 7 )
+frames = ExtResource( 3 )
 animation = "idle"
 playing = true
 offset = Vector2( -13.5929, -9.06195 )
@@ -420,10 +505,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -183.0
-margin_top = 63.0
-margin_right = 197.0
-margin_bottom = 120.0
+margin_left = -188.5
+margin_top = 86.0
+margin_right = 183.5
+margin_bottom = 220.0
 custom_fonts/font = SubResource( 9 )
 text = "Foie gras"
 align = 1
