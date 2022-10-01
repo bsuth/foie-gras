@@ -9,11 +9,24 @@ var _tick_timeout: float = INITIAL_TICK_TIMEOUT
 var _seconds_since_last_tick: float = 0
 
 
-func _ready():
+func _init():
 	GameState.players = {}
 	for player in PlayerManager.players:
 		if player.device != -1:
 			GameState.players[player.device] = GameState.Player.new(player)
+
+
+func _input(event):
+	var player = GameState.players[event.device]
+	if player:
+		if event.is_action_pressed("up"):
+			player.direction = GameState.UP
+		elif player && event.is_action_pressed("down"):
+			player.direction = GameState.DOWN
+		elif player && event.is_action_pressed("left"):
+			player.direction = GameState.LEFT
+		elif player && event.is_action_pressed("right"):
+			player.direction = GameState.RIGHT
 
 
 func _physics_process(delta: float):

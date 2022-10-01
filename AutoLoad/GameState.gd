@@ -6,10 +6,10 @@ extends Node
 
 enum { PREY, PREDATOR }
 
-const NORTH = Vector2(0, -1)
-const SOUTH = Vector2(0, 1)
-const EAST = Vector2(1, 0)
-const WEST = Vector2(-1, 0)
+const UP = Vector2(0, -1)
+const DOWN = Vector2(0, 1)
+const LEFT = Vector2(-1, 0)
+const RIGHT = Vector2(1, 0)
 
 signal tick
 
@@ -19,7 +19,7 @@ signal tick
 
 class Player extends PlayerManager.Player:
 	var position = Vector2(0, 0)
-	var direction = SOUTH
+	var direction = DOWN
 	var type = PREY
 
 
