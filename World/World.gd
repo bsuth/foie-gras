@@ -20,13 +20,17 @@ func _input(event):
 	var player = GameState.players[event.device]
 	if player:
 		if event.is_action_pressed("up"):
-			player.direction = GameState.UP
+			if player.position.y != 0:
+				player.direction = GameState.UP
 		elif player && event.is_action_pressed("down"):
-			player.direction = GameState.DOWN
+			if player.position.y != GameState.stage_size.y:
+				player.direction = GameState.DOWN
 		elif player && event.is_action_pressed("left"):
-			player.direction = GameState.LEFT
+			if player.position.x != 0:
+				player.direction = GameState.LEFT
 		elif player && event.is_action_pressed("right"):
-			player.direction = GameState.RIGHT
+			if player.position.x != GameState.stage_size.x:
+				player.direction = GameState.RIGHT
 
 
 func _physics_process(delta: float):
