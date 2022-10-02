@@ -23,13 +23,13 @@ func _input(event):
 			if player.position.y != 0:
 				player.direction = GameState.UP
 		elif player && event.is_action_pressed("down"):
-			if player.position.y != GameState.stage_size.y:
+			if player.position.y != GameState.stage_size.y - 1:
 				player.direction = GameState.DOWN
 		elif player && event.is_action_pressed("left"):
 			if player.position.x != 0:
 				player.direction = GameState.LEFT
 		elif player && event.is_action_pressed("right"):
-			if player.position.x != GameState.stage_size.x:
+			if player.position.x != GameState.stage_size.x - 1:
 				player.direction = GameState.RIGHT
 
 
@@ -43,9 +43,9 @@ func _physics_process(delta: float):
 		for player in GameState.players.values():
 			player.position += player.direction
 			if player.direction.x != 0: 
-				if player.position.x == 0 || player.position.x == GameState.stage_size.x:
+				if player.position.x == 0 || player.position.x == GameState.stage_size.x - 1:
 					player.direction *= -1
-			elif player.position.y == 0 || player.position.y == GameState.stage_size.y:
+			elif player.position.y == 0 || player.position.y == GameState.stage_size.y - 1:
 				player.direction *= -1
 
 		GameState.emit_signal("tick")
