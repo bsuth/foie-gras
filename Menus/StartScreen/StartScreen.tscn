@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Assets/Font.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Menus/StartScreen.gd" type="Script" id=2]
-[ext_resource path="res://Assets/DuckBob.tres" type="SpriteFrames" id=3]
-[ext_resource path="res://Assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Menus/Honk.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Pond.png" type="Texture" id=6]
-[ext_resource path="res://Menus/CharacterSelect.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Menus/StartScreen/StartScreen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/Pond.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Menus/CharacterSelect/CharacterSelect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Menus/MainMenu/Honk.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Images/DuckBob.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="Animation" id=10]
 resource_name = "Overall"
@@ -81,7 +81,7 @@ tracks/0/keys = {
 size = 64
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 4 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=12]
 resource_name = "AppearAndFade"
@@ -329,12 +329,12 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[node name="StartScreen" type="Control"]
+[node name="UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -746, -15 )
-script = ExtResource( 2 )
-nextScene = ExtResource( 7 )
+script = ExtResource( 1 )
+nextScene = ExtResource( 4 )
 
 [node name="Overall" type="AnimationPlayer" parent="."]
 autoplay = "Overall"
@@ -356,7 +356,7 @@ margin_top = -95.0
 margin_right = 77.0
 margin_bottom = -73.0
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Press Start"
 align = 1
 valign = 1
@@ -377,12 +377,12 @@ margin_bottom = -21.0
 [node name="Pond" type="Sprite" parent="Centered"]
 position = Vector2( 1, 54 )
 scale = Vector2( 2.71354, 2.71354 )
-texture = ExtResource( 6 )
+texture = ExtResource( 2 )
 
 [node name="Duck3" type="AnimatedSprite" parent="Centered"]
 position = Vector2( -51, 49 )
 scale = Vector2( 7, 7 )
-frames = ExtResource( 3 )
+frames = ExtResource( 6 )
 animation = "idle"
 speed_scale = 1.4
 playing = true
@@ -391,8 +391,9 @@ offset = Vector2( -0.566368, -10.4779 )
 [node name="Duck2" type="AnimatedSprite" parent="Centered"]
 position = Vector2( 77, 29 )
 scale = Vector2( 7, 7 )
-frames = ExtResource( 3 )
+frames = ExtResource( 6 )
 animation = "idle"
+frame = 1
 speed_scale = 1.25
 playing = true
 offset = Vector2( -0.566368, -10.4779 )
@@ -400,7 +401,7 @@ offset = Vector2( -0.566368, -10.4779 )
 [node name="Duck1" type="AnimatedSprite" parent="Centered"]
 position = Vector2( 107, 85 )
 scale = Vector2( 7, 7 )
-frames = ExtResource( 3 )
+frames = ExtResource( 6 )
 animation = "idle"
 frame = 1
 playing = true

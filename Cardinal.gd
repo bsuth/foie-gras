@@ -1,4 +1,5 @@
-tool extends Node
+tool
+extends Node
 
 export var defaultScene : PackedScene
 export(NodePath) var sceneOwner : NodePath
