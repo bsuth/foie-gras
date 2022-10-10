@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://World/Stage.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Tile.svg" type="Texture" id=2]
+[ext_resource path="res://World/PlayZone.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/Tile.svg" type="Texture" id=2]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tile.svg 0"

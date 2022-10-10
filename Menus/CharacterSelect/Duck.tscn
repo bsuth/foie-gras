@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Images/DuckBob.tres" type="SpriteFrames" id=1]
+
+[node name="Duck3" type="AnimatedSprite"]
+scale = Vector2( 7, 7 )
+frames = ExtResource( 1 )
+animation = "idle"
+playing = true

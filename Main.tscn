@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Menus/StartScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Menus/StartScreen/StartScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Cardinal.gd" type="Script" id=2]
 
 [node name="Root" type="Node"]
@@ -12,7 +12,7 @@ __meta__ = {
 [node name="Cardinal" type="Node" parent="."]
 script = ExtResource( 2 )
 __meta__ = {
-"_editor_description_": "Holds global game state. Also a tool, allowing for quick manipulation."
+"_editor_description_": "Holds global game state. Also a tool - allows for quick manipulation."
 }
 defaultScene = ExtResource( 1 )
 sceneOwner = NodePath("../World")
