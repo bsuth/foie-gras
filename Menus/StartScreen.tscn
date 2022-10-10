@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/StartScreen.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Menus/Honk.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Pond.png" type="Texture" id=6]
+[ext_resource path="res://World/World.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=10]
 resource_name = "Overall"
@@ -429,6 +430,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -746, -15 )
 script = ExtResource( 2 )
+nextScene = ExtResource( 7 )
 
 [node name="Overall" type="AnimationPlayer" parent="."]
 autoplay = "Overall"
@@ -478,7 +480,6 @@ position = Vector2( -51, 49 )
 scale = Vector2( 7, 7 )
 frames = ExtResource( 3 )
 animation = "idle"
-frame = 1
 speed_scale = 1.4
 playing = true
 offset = Vector2( -0.566368, -10.4779 )
@@ -497,17 +498,16 @@ position = Vector2( 107, 85 )
 scale = Vector2( 7, 7 )
 frames = ExtResource( 3 )
 animation = "idle"
-frame = 1
 playing = true
 offset = Vector2( -13.5929, -9.06195 )
 
 [node name="Title" type="Label" parent="Centered"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -171.0
-margin_top = 90.0
-margin_right = 171.0
-margin_bottom = 147.0
+margin_left = -188.5
+margin_top = 86.0
+margin_right = 153.5
+margin_bottom = 282.0
 custom_fonts/font = SubResource( 16 )
 text = "Foie gras"
 align = 1
