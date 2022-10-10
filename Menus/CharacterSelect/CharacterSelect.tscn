@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menus/Director.gd" type="Script" id=1]
 [ext_resource path="res://Menus/CharacterSelect/Duck.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menus/CharacterSelect/QuadsplitUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/CharacterSelect/Characters.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Images/Pattern1.png" type="Texture" id=5]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float speed = 1;
+
+void fragment(){
+  COLOR = texture(TEXTURE, UV - speed * vec2(TIME,TIME)); //read from texture
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/speed = 0.1
 
 [node name="Node" type="Node"]
 
@@ -13,6 +27,14 @@ player1Camera = NodePath("../UI/CharacterSelect/Top/Left/Viewport/CharacterSelec
 player2Camera = NodePath("../UI/CharacterSelect/Top/Right/Viewport/CharacterSelectCamera")
 player3Camera = NodePath("../UI/CharacterSelect/Bottom/Left/Viewport/CharacterSelectCamera")
 player4Camera = NodePath("../UI/CharacterSelect/Bottom/Right/Viewport/CharacterSelectCamera")
+
+[node name="TextureRect" type="TextureRect" parent="World"]
+material = SubResource( 2 )
+margin_right = 499.0
+margin_bottom = 71.0
+rect_scale = Vector2( 10, 10 )
+texture = ExtResource( 5 )
+stretch_mode = 2
 
 [node name="Characters" type="Node2D" parent="World"]
 position = Vector2( 81, 192 )
