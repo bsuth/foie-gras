@@ -10,33 +10,39 @@ var _predator_order = []
 
 
 func _init():
-	GameState.players = {}
+	GameState.players = []
 	_predator_order = []
 
 	for player in PlayerManager.players:
 		if player.device != -1:
-			_predator_order.push_back(_predator_order.size())
-			GameState.players[player.device] = GameState.Player.new(player)
+			GameState.players.push_back(GameState.Player.new(player))
+			_predator_order.push_back(player.id)
 
 	randomize()
 	_predator_order.shuffle()
 
 
 func _input(event):
-	var player = GameState.players[event.device]
-	if player:
+	var inputPlayer
+
+	for player in GameState.players:
+		if player.device == event.device:
+			inputPlayer = player
+			break
+
+	if inputPlayer:
 		if event.is_action_pressed("up"):
-			if player.position.y != 0:
-				player.direction = GameState.UP
-		elif player && event.is_action_pressed("down"):
-			if player.position.y != GameState.stage_size.y - 1:
-				player.direction = GameState.DOWN
-		elif player && event.is_action_pressed("left"):
-			if player.position.x != 0:
-				player.direction = GameState.LEFT
-		elif player && event.is_action_pressed("right"):
-			if player.position.x != GameState.stage_size.x - 1:
-				player.direction = GameState.RIGHT
+			if inputPlayer.position.y != 0:
+				inputPlayer.direction = GameState.UP
+		elif event.is_action_pressed("down"):
+			if inputPlayer.position.y != GameState.stage_size.y - 1:
+				inputPlayer.direction = GameState.DOWN
+		elif event.is_action_pressed("left"):
+			if inputPlayer.position.x != 0:
+				inputPlayer.direction = GameState.LEFT
+		elif event.is_action_pressed("right"):
+			if inputPlayer.position.x != GameState.stage_size.x - 1:
+				inputPlayer.direction = GameState.RIGHT
 
 
 func _physics_process(delta: float):
@@ -46,7 +52,7 @@ func _physics_process(delta: float):
 		_seconds_since_last_tick = 0
 		_tick_timeout *= 0.95
 
-		for player in GameState.players.values():
+		for player in GameState.players:
 			player.position += player.direction
 			if player.direction.x != 0: 
 				if player.position.x == 0 || player.position.x == GameState.stage_size.x - 1:

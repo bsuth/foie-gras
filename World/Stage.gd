@@ -14,7 +14,7 @@ var player_instances = []
 
 
 func _ready():
-	for player in GameState.players.values():
+	for player in GameState.players:
 		var player_instance = PLAYER_SCENE.instance()
 		player_instance.player = player
 		player_instances.push_back(player_instance)

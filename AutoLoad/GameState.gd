@@ -24,11 +24,12 @@ class Player extends PlayerManager.Player:
 
 
 	func _init(player: PlayerManager.Player):
+		self.id = player.id
 		self.device = player.device
 
 # ------------------------------------------------------------------------------
 # Main
 # ------------------------------------------------------------------------------
 
-var players = {}
+var players: Array = []
 var stage_size = Vector2(10, 6)

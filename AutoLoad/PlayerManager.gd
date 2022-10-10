@@ -12,17 +12,22 @@ signal player_disconnected(Player)
 # ------------------------------------------------------------------------------
 
 class Player:
+	var id: int
 	var device: int = -1
+
+
+	func _init(id: int):
+		self.id = id
 
 # ------------------------------------------------------------------------------
 # Main
 # ------------------------------------------------------------------------------
 
 var players: Array = [
-	Player.new(),
-	Player.new(),
-	Player.new(),
-	Player.new(),
+	Player.new(0),
+	Player.new(1),
+	Player.new(2),
+	Player.new(3),
 ]
 
 
