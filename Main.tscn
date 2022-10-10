@@ -15,3 +15,6 @@ __meta__ = {
 "_editor_description_": "Holds global game state. Also a tool, allowing for quick manipulation."
 }
 defaultScene = ExtResource( 1 )
+sceneOwner = NodePath("../World")
+
+[node name="World" type="Node" parent="."]

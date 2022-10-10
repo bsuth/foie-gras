@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/StartScreen.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Assets/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Menus/Honk.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Pond.png" type="Texture" id=6]
-[ext_resource path="res://Menus/CharacterSelect.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=10]
 resource_name = "Overall"
@@ -42,9 +41,105 @@ tracks/2/keys = {
 "clips": PoolStringArray( "AppearAndFade", "RESET" ),
 "times": PoolRealArray( -0.6, 2.2 )
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Centered/Title:margin_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Centered/Title:margin_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Centered/Title:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -188.5, 86 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Centered/Title:rect_rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=11]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Centered/Title:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -183.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Centered/Title:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 59.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Centered/Title:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -188.5, 86 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Centered/Title:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Blink"
@@ -334,7 +429,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -746, -15 )
 script = ExtResource( 2 )
-nextScene = ExtResource( 7 )
 
 [node name="Overall" type="AnimationPlayer" parent="."]
 autoplay = "Overall"
@@ -384,6 +478,7 @@ position = Vector2( -51, 49 )
 scale = Vector2( 7, 7 )
 frames = ExtResource( 3 )
 animation = "idle"
+frame = 1
 speed_scale = 1.4
 playing = true
 offset = Vector2( -0.566368, -10.4779 )

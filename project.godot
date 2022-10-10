@@ -30,6 +30,7 @@ config/icon="res://Assets/Icon.png"
 
 PlayerManager="*res://AutoLoad/PlayerManager.gd"
 GlobalUtils="*res://AutoLoad/GlobalUtils.gd"
+GameState="*res://AutoLoad/GameState.gd"
 
 [display]
 
