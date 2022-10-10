@@ -23,8 +23,7 @@ class Player extends PlayerManager.Player:
 	var type = PREY
 
 
-	func _init(player: PlayerManager.Player):
-		self.id = player.id
+	func _init(player: PlayerManager.Player).(player.id):
 		self.device = player.device
 
 # ------------------------------------------------------------------------------
