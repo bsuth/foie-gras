@@ -6,13 +6,20 @@ const INITIAL_TICK_TIMEOUT = 3.0
 
 var _tick_timeout: float = INITIAL_TICK_TIMEOUT
 var _seconds_since_last_tick: float = 0
+var _predator_order = []
 
 
 func _init():
 	GameState.players = {}
+	_predator_order = []
+
 	for player in PlayerManager.players:
 		if player.device != -1:
+			_predator_order.push_back(_predator_order.size())
 			GameState.players[player.device] = GameState.Player.new(player)
+
+	randomize()
+	_predator_order.shuffle()
 
 
 func _input(event):

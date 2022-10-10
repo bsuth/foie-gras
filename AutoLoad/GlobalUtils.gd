@@ -1,3 +1,3 @@
 extends Node
 
-const Node = preload("res://Utils/node.gd")
+const Node = preload("res://Utils/Node.gd")
